@@ -1,0 +1,51 @@
+.abc{
+    color: white;
+   
+}
+
+body {
+    background-image: url(../images/wooden-background_dark.avif);
+    background-size: cover;
+    color: white;
+   
+    
+}
+
+legend{
+   color: white;
+   padding: 10px 10px;
+   border: 2px solid black;
+   background: linear-gradient(to right, #0057ff, #8a2be2, #ff3c3c);
+   border-radius: 0px 20px 0px 20px;
+   
+
+}
+
+fieldset{
+  border-width: 3px;
+}
+
+td{
+    padding: 5px;
+}
+
+.abc{
+    padding: 15px;
+}
+
+.od{
+    padding-left: 150px;
+}
+
+.od1{
+    padding-right: 50px;
+}
+
+.od2{
+    padding-right: 100px;
+}
+
+
+
+
+

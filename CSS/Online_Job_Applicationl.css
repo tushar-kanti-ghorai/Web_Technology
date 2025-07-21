@@ -7,6 +7,7 @@ body {
     background-image: url(../images/wooden-background_dark.avif);
     background-size: cover;
     color: white;
+    background-attachment: fixed;
    
     
 }

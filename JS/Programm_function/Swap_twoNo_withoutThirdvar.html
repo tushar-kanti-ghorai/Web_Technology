@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let num1=prompt("Enter num1 number:");
+        let num2=prompt("Enter num2 number");
+        isSwap(num1,num2);
+
+        function isSwap(num1,num2) {
+            if (num1 == null) { alert("You cancelled! please enter the num1:"); return; }
+            if (num2 == null) { alert("You cancelled! please enter the num2:"); return; }
+
+            if (num1 == "" || num2=="") { alert("You did not enter any number! you just clicked the OK button"); return; }
+            num1 = Number(num1);
+            num2=Number(num2)
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Invalid input ! please enter a valid number");
+                return;
+            }
+            console.log("before swapping:");
+            console.log("num1="+num1+" num2="+num2);
+            num1=num1+num2;
+            num2=num1-num2;
+            num1=num1-num2;
+            console.log("After swapping:");
+            console.log("num1="+num1+" num2="+num2);
+
+
+        }
+
+
+
+        
+
+        
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

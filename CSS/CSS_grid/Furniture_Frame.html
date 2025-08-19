@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture</title>
+    <style>
+        .container{
+            height:470px;
+            width:620px;
+            border:2px solid black;
+            display:grid;
+            gap:10px;
+            grid-template-columns: repeat(3,200px);
+            grid-auto-rows: 150px;
+        }
+
+        .items{
+            background-color: brown;
+            color: white;
+            border: 2px solid black;
+
+        }
+
+        .three{
+            grid-column: 3/4;
+            grid-row: 1/3;
+        }
+
+        .four{
+           grid-column:1/3;
+           grid-row: 2/3;
+        }
+
+        .six{
+            grid-column: 2/4;
+            grid-row: 3/4;
+        }
+
+        img{
+            width:100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items"><img src="../../images/fur5.webp" alt=""></div>
+        <div class="items"><img src="../../images/fur6.jpg" alt=""></div>
+        <div class="items three"><img src="../../images/fur1.jpg" alt=""></div>
+        <div class="items four"><img src="../../images/fur3.jpeg" alt=""></div>
+        <div class="items"><img src="../../images/fur4.webp" alt=""></div>
+        <div class="items six"><img src="../../images/Fun2.jpg" alt=""></div>
+    </div>
+</body>
+</html>

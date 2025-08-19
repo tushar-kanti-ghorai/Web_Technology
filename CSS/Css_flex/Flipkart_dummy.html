@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart</title>
+    <style>
+
+        body{
+            background-color: rgb(241, 235, 235);
+        }
+        nav {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            margin: 0;
+        }
+
+        nav>h3{
+            font-size: 20px;
+            font-family: cursive;
+            text-align: start;
+        }
+        
+
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0px 50px;
+            height: 150px;
+            width: 96%;
+            margin: auto;
+            margin-top:10px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 10px black;
+        
+        }
+
+        img{
+            height: 100px;
+            width:100px;
+            border-radius: 10px;
+            margin-left:23px;
+            cursor: pointer;
+        }
+        .items>h5{
+            text-align: center;
+            margin-top: 10px;
+            margin-left:15px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        section
+        {
+            margin: 10px;
+            margin-left:15px;
+        }
+        section>.items
+        {
+            width: 150px;
+            border: 2px solid black;
+            padding: 10px;
+            background-color: white;
+        }
+        button
+        {
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h3>Flipkart</h3>
+    </nav>
+
+    <div class="container">
+        <div class="items"><img src="../../images/mobiles.jpg" alt="">
+             <h5>Mobiles</h5>
+            </div>
+        <div class="items"><img src="../../images/Laptop.jpg" alt="">
+             <h5>Laptops</h5></div>
+        <div class="items"><img src="../../images/Fashion.webp" alt="">
+             <h5>Fashion</h5></div>
+        <div class="items"><img src="../../images/Fur.jpg" alt="">
+             <h5>Furniture</h5></div>
+        <div class="items"><img src="../../images/Electronics.jpg" alt="">
+             <h5>Electronics</h5></div>
+        <div class="items"><img src="../../images/Flight_Booking.jpg" alt="">
+             <h5>Flight <br>Bookings</h5></div>
+        <div class="items"><img src="../../images/Teddy_Bear.jpg" alt="">
+             <h5>Teddy <br> Bear</h5></div>
+    </div>
+
+    <section>
+        <div class="items">
+            <img src="../../Images/Laptop.jpg" alt="">
+            <p><b>Hp Pavillion </b><br>Processor: AMD Ryzen 5 4600H</p>
+            <button>Buy now</button>
+        </div>
+     </section>
+
+
+</body>
+
+</html>

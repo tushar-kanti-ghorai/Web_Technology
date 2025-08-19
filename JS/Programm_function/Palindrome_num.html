@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <script>
+        let num=prompt("Enter a Number:");
+        if(num==null){
+             console.log("You cancelled! Please enter a number");
+        }else if(num.trim()==""){
+            console.log("You did not enter any number");
+        }else if(isNaN(num)){
+            console.log("Ivalid input! please enter a valid number");
+        }else{
+            num=Number(num);
+            if(isPalindrome(num)){
+                console.log(`The ${num} is palindrome number`);
+            }else{
+                 console.log(`The ${num} is not palindrome number`);
+            }
+        }
+
+        function isPalindrome(num){
+            if(num<0) return false;
+            let sum=0;
+            let temp=num;
+            while(num>0){
+                sum=(sum*10)+(num%10);
+                num=Math.trunc(num/10);
+            }
+
+            return temp===sum;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

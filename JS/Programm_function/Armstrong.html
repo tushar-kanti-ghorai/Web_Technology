@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let num = prompt("Enter a number:");
+        isArmstrong(num);
+
+        function isArmstrong(num) {
+            if (num == null) { alert("You cancelled! please enter the number:"); return; }
+            if (num == "") { alert("You did not enter any number! you just clicked the OK button"); return; }
+            num = Number(num);
+            if (isNaN(num)) {
+                alert("Invalid input ! please enter a valid number");
+                return;
+            }
+            let count = calCount(num, 0);
+            if (calArm(num, num, count))
+                alert(`The ${num} is Armstrong number`);
+            else
+                alert(`The ${num} is not Armstrong`);
+
+        }
+
+
+
+        function calCount(num, count) {
+            if (num == 0) return count;
+            count++;
+            return calCount(Math.trunc(num / 10), count);
+        }
+
+
+        function calArm(num, temp, count) {
+            let sum = 0;
+            while (num > 0) {
+                let rem = num % 10;
+                let prod = 1;
+                for (let i = 1; i <= count; i++) {
+                    prod *= rem;
+                }
+                sum += prod;
+                num = Math.trunc(num / 10);
+            }
+            return sum == temp;
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

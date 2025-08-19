@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+    <script>
+        let num = prompt("Enter a number:");
+        isPrime(num);
+
+        function isPrime(num) {
+            if (num == null) { 
+                alert("You cancelled! Please enter a number."); 
+                return; 
+            }
+            if (num.trim() === "") { 
+                alert("You did not enter any number!"); 
+                return; 
+            }
+
+            num = Number(num);
+            if (isNaN(num)) {
+                alert("Invalid input! Please enter a valid number.");
+                return;
+            }
+
+            if (num <= 1) {
+                alert(`The ${num} is NOT a prime number`);''
+                return;
+            }
+
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    alert(`The ${num} is NOT a prime number`);
+                    return;
+                }
+            }
+
+            alert(`The ${num} is a PRIME number`);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

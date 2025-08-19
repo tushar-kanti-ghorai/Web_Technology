@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Number</title>
+    <script>
+        let num = prompt("Enter a number:");
+        if (num === null) {
+            console.log("You cancelled! Please enter a number");
+        } 
+        else if (num.trim() === "") {
+            console.log("You did not enter any number!");
+        } 
+        else if (isNaN(num)) {
+            console.log("Invalid Input! Please enter a valid number");
+        } 
+        else {
+            num = Number(num);
+            if (isStrong(num)) {
+                console.log(`The ${num} is a Strong number`);
+            } else {
+                console.log(`The ${num} is NOT a Strong number`);
+            }
+        }
+
+        function isStrong(n) {
+            let sum = 0;
+            let temp = n;
+
+            while (n > 0) {
+                let rem = n % 10;
+                let fact = 1;
+                for (let i = 1; i <= rem; i++) {
+                    fact *= i;
+                }
+                sum += fact;
+                n = Math.trunc(n / 10);
+            }
+            return temp === sum;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

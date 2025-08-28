@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      *{
+        margin:0px;
+      }
+
+        nav{
+            background-color: rgb(3, 3, 33);
+            margin: 0;
+            color: white;
+            padding: 10px;
+        }
+
+        .product-container{
+          margin:10px;  
+        }
+
+        .product-container>.product{
+            border:2px solid black;
+            height:280px;
+            width:250px
+        }
+        
+         .product-container>.product>img{
+            height: 200px;
+            width: inherit;
+         }
+         
+         .product>.content{
+            text-align: center;
+         }
+
+         .icon{
+            border-radius: 50%;
+         }
+
+         .icon:hover{
+            cursor: pointer;
+         }
+         
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<nav>
+<div>
+   <h2>🛒 Amazon</h2>
+</div>
+</nav>
+
+<section class="product-container">
+    <div class="product">
+        <img src="../../images/Laptop.jpg" alt="">
+        <h3 class="content">Apply Laptop</h3>
+        <h4 class="content"> $40000</h4>
+         <h5 class="content">
+             <button class="icon" onclick="qtyDec()" >➖</button>
+             <span id="qty"></span>
+             <button class="icon" onclick="qtyInc()">➕</button>
+         </h5>
+           
+
+    </div>
+</section>
+
+<footer style="margin-bottom: 500px;"></footer>
+
+    <script>
+        let qtyEle=document.getElementById("qty");
+        let qty=1;
+        qtyEle.textContent=1;
+
+        function qtyInc(){
+            qty++;
+            qtyEle.textContent=qty;
+
+        }
+        
+         function qtyDec(){
+            if(qty>1){
+                qty--;
+                qtyEle.textContent=qty;
+
+            }else{
+              qtyEle.textContent=1;
+
+            }
+            
+        }
+
+    </script>
+    
+</body>
+</html>

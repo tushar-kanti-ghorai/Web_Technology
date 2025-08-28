@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="../bootstrap-framework/css/bootstrap.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <style>
+      img {
+         height: 250px !important;
+      }
+       nav{
+            background: linear-gradient(to right, #9f1526 0%, #9f1526) !important;
+        }
+   </style>
+</head>
+
+<body>
+   <nav class="navbar navbar-dark ">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="#">🏆 RCB 🏆</a>
+      </div>
+   </nav>
+
+   <section class="container-fluid mt-4">
+      <div class="row">
+         <div class="col-3">
+            <div class="card" style="width: 18rem;">
+               <img src="../images/Virat.webp" class="card-img-top" alt="...">
+               <div class="card-body text-center">
+                  <h4 class="text-danger ">Virat Kohli</h4>
+                  <h2>18</h2>
+                  
+                  <!-- Dislike Button -->
+                  <button type="button" class="btn btn-danger btn-sm" onclick="increaseDislike()">
+                     <i class="fa-solid fa-thumbs-down"></i>
+                     <span id="dislikes"></span>
+                  </button>
+
+                  <!-- Like Button -->
+                  <button type="button" class="btn btn-success btn-sm" onclick="increaseLike()">
+                     <i class="fa-solid fa-thumbs-up"></i> 
+                     <span id="likes"></span>
+                  </button>
+               </div>
+               <div class="card-footer bg-danger text-white" style="background: linear-gradient(to right, #9f1526 0%, #9f1526 100%);">
+                  <h4>Likes & Dislikes: <span id="total"></span></h4>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <footer style="margin-bottom: 450px;"></footer>
+
+   <script>
+     let disLikes=document.getElementById("dislikes") ;
+    let likes= document.getElementById("likes")
+      let total= document.getElementById("total")
+    let disLikeCount=localStorage.getItem("dislikes")?Number(localStorage.getItem("dislikes")):0
+    let likeCount=localStorage.getItem("likes")?Number(localStorage.getItem("likes")):0
+    let totalCount=localStorage.getItem("total")?Number(localStorage.getItem("total")):0
+   disLikes.textContent=disLikeCount;
+     likes.textContent=likeCount;
+     total.textContent=totalCount;
+
+      function increaseDislike() {
+         disLikeCount++;
+         localStorage.setItem("dislikes",disLikeCount);
+         disLikes.textContent =localStorage.getItem("dislikes");
+         updateTotal();
+      }
+
+      function increaseLike() {
+         likeCount++;
+         localStorage.setItem("likes",likeCount)
+         likes.textContent = localStorage.getItem("likes");
+         updateTotal();
+      }
+
+      function updateTotal() {
+         totalCount=disLikeCount+likeCount;
+         localStorage.setItem("total",totalCount);
+        total.textContent = localStorage.getItem("total");
+      }
+   </script>
+</body>
+//Kleb stroage (Browser) 35MB
+//1.Local stroage 2. Session stroage
+</html>

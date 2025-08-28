@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        div{
+            background-color:yellow;
+            color: black;
+            margin: 0;
+            text-align: center;
+            border: 5px solid palevioletred;
+            height: 110px;
+           
+        }
+
+        div,h1{
+            margin-top: 0;
+            padding: 10px;
+
+
+        }
+
+        div>button{
+            width: 50px;
+            border-radius: 10px;
+         
+        }
+
+        button:hover{
+            background-color: blue;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+            <h1 >Addition of Two num:<span id="add">Res</span></h1>
+             <button onclick="sum()">Add</button>
+    </div>
+     <div>
+            <h1 >Subtraction of Two num:<span id="sub">Res</span></h1>
+             <button onclick="sub()">Sub</button>
+    </div>
+     <div>
+            <h1 >Multiplication of Two num:<span id="mul">Res</span></h1>
+             <button onclick="mul()">Mul</button>
+    </div>
+     <div>
+            <h1 >Division of Two num:<span id="div">Res</span></h1>
+             <button onclick="div()">Div</button>
+    </div>
+
+
+    <script>
+        let spanELe=document.getElementById("add");
+        function sum(){
+            let n1=10;
+            let n2=20;
+            spanELe.textContent=n1+n2;
+        }
+
+
+        function sub(){
+            let n1=20;
+            let n2=10;
+            document.getElementById("sub").textContent=n1-n2;
+        }
+
+        function mul(){
+            let n1=5;
+            let n2=10;
+            document.getElementById("mul").textContent=n1*n2;
+
+        }
+
+         function div(){
+            let n1=10;
+            let n2=5;
+            document.getElementById("div").textContent=n1/n2;
+
+        }
+
+      
+    </script>
+    
+</body>
+</html>

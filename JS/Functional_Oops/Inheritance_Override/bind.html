@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    let s1={id:101,name:"kiran",birthYear:2000};
+    let calAge=function(){
+        let currentAge=new Date().getFullYear();
+        let age=currentAge-this.birthYear;
+        console.log(age);
+    }
+
+    let res=calAge.bind(s1);
+    console.log(res);
+    res();
+
+    console.log(typeof s1);
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Demo{
+            static b;
+            a;
+            static m1(){
+                   console.log(Demo.b);
+                   Demo.b=30;
+                   console.log(Demo.b);
+
+            }
+
+            main(){
+                console.log(this.a);//10
+                d1.a=30;
+                console.log(this.b);//undefined
+                <!-- console.log(Demo.b); -->
+               let  c=20;
+                console.log(c);
+               
+            }
+
+          
+           
+        }
+
+        let d1=new Demo();
+        console.log(d1);
+        d1.main();
+        Demo.m1();
+    </script>
+</body>
+</html>

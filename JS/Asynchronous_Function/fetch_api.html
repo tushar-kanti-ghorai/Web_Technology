@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../bootstrap-framework/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid text-white">
+            <div class="navbar-brand">Fetch_ApI</div>
+        </div>
+
+    </nav>
+
+    <section class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-8 m-auto">
+                <div class="card border-dark">
+                    <div class="card-body bg-success">
+                        <h2 id="data"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let dataELe=document.getElementById('data');
+        function getData(){
+           let p1=fetch('https://jsonplaceholder.typicode.com/users');
+           p1.then((res)=>{
+            let p2=res.json();
+            p2.then((data)=>{
+                dataELe.innerText=JSON.stringify(data,null,2);
+            })
+           }).catch((err)=>{
+             dataELe.innerText=err;
+           })
+
+           
+        }
+
+        getData();
+    </script>
+</body>
+</html>

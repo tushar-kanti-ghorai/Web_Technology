@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    class Account{
+        #transcation=[];
+    constructor(usn,pwd){
+        this.usn=usn;
+        this.pwd=pwd;
+    }
+
+    deposite(amt){
+        this.#transcation.push(amt);
+    }
+     static main(){
+        let a1=new Account("Tushar","12345");
+        a1.deposite(2000);
+        a1.deposite(3000);
+        console.log(a1.#transcation);
+     }
+    }
+
+    Account.main();
+    
+   </script> 
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   count:<span id="display"></span>
+   <div>
+     <button id="incBtn">Inc</button>
+   <button id="decBtn">Dec</button>
+   </div>
+  
+
+   <Script>
+    let displayEle=document.getElementById('display');
+    let incBtn=document.getElementById('incBtn');
+    let decBtn=document.getElementById('decBtn');
+
+    let count=sessionStorage.getItem('count')?+sessionStorage.getItem('count'):0;
+
+    displayEle.innerText=count;
+
+    incBtn.addEventListener('click',()=>{
+        count++;
+        displayEle.innerText=count;
+        sessionStorage.setItem('count',count);
+    })
+
+
+     decBtn.addEventListener('click',()=>{
+        if(count>0){
+        count--;
+        displayEle.innerText=count;
+        sessionStorage.setItem('count',count);
+        }
+    })
+
+
+   </Script>
+</body>
+</html>

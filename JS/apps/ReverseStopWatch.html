@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../bootstrap-framework/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid text-white">
+            <div class="navbar-brand">🧾 Jspider</div>
+            <div>
+                <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="container-fluid mt-5 ">
+        <div class="row  ">
+            <div class="col-5 m-auto">
+                <div class="card border-dark">
+                    <div class="card-header text-center  bg-dark text-white">
+                        <h2> Reverser Stop Watch</h2>
+                    </div>
+                    <div class="card-body text-center ">
+                        <div>
+                            <h2>
+                                <span id="hrStop">00</span>:
+                                <span id="minStop">00</span>:
+                                <span id="secStop">00</span>:
+                                <span id="miliStop">00</span>
+                            </h2>
+                        </div>
+                        <div class="d-flex justify-content-center gap-2 mt-3">
+                            <input type="number" id="setHr" placeholder="HH" min="0"
+                                class="form-control w-25 text-center">
+                            <input type="number" id="setMin" placeholder="MM" min="0"
+                                class="form-control w-25 text-center">
+                            <input type="number" id="setSec" placeholder="SS" min="0"
+                                class="form-control w-25 text-center">
+                        </div>
+                    </div>
+                    <div class="card-footer border-dark bg-dark">
+                        <div class="d-flex  justify-content-between">
+                            <button class="btn btn-warning" id="setBtn">Set Time</button>
+                            <button class="btn btn-success" id="startBtn">start</button>
+                            <button class="btn btn-danger" id="stopBtn">stop</button>
+                            <button class="btn  btn-primary" id="resetBtn">reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let hrTag = document.getElementById('hr');
+        let minTag = document.getElementById('min');
+        let secTag = document.getElementById('sec');
+        function digitalClock() {
+            let date = new Date();
+            let hr = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            hrTag.innerText = (hr > 9) ? hr : "0" + hr;
+            minTag.innerText = (min > 9) ? min : "0" + min;
+            secTag.innerText = (sec > 9) ? sec : "0" + sec;
+        }
+
+        digitalClock();
+
+        setInterval(() => digitalClock(), 1000);
+
+
+
+
+        //StopWatch
+
+        let hrStopTag = document.getElementById('hrStop');
+        let minStopTag = document.getElementById('minStop');
+        let secStopTag = document.getElementById('secStop');
+        let miliStopTag = document.getElementById('miliStop');
+        let startBtn = document.getElementById('startBtn');
+        let stopBtn = document.getElementById('stopBtn');
+        let resetBtn = document.getElementById('resetBtn');
+        let setBtn = document.getElementById('setBtn');
+
+        let count = 0;
+        let intervalId;
+        stopBtn.disabled = true;
+        resetBtn.disabled = true;
+        startBtn.disabled = true;
+
+        setBtn.addEventListener('click', () => {
+            let h = parseInt(document.getElementById('setHr').value) || 0;
+            let m = parseInt(document.getElementById('setMin').value) || 0;
+            let s = parseInt(document.getElementById('setSec').value) || 0;
+
+            count=((h*60*60)+(m*60)+s)*10000;
+            display();
+            startBtn.disabled=false;
+
+        })
+
+        startBtn.addEventListener('click', () => {
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+            resetBtn.disabled = false;
+            startInterval();
+
+        });
+
+        stopBtn.addEventListener('click', () => {
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            resetBtn.disabled = false;
+            stopInterval();
+
+        });
+
+        resetBtn.addEventListener('click', () => {
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            resetBtn.disabled = true;
+            stopInterval();
+            count = 0;
+            display();
+
+
+        });
+
+        function display() {
+            let miliSec = Math.trunc((Math.trunc(count % 1000 / 10)));
+            let sec = (Math.trunc(count / 1000)) % 60;
+            let min = Math.trunc(count / 1000 / 60);
+            let hr = Math.trunc(count / 1000 / 60 / 60);
+            miliStopTag.innerText = miliSec > 0 ? miliSec : "0" + miliSec;
+            secStopTag.innerText = sec > 9 ? sec : "0" + sec;
+            minStopTag.innerText = min > 9 ? min : "0" + min;
+            hrStopTag.innerText = hr > 9 ? hr : "0" + hr;
+        }
+
+        function startInterval() {
+            intervalId = setInterval(() => {
+                count -= 100;
+                display();
+                if(count<=0){
+                    clearInterval(intervalId);
+                    count=0;
+                    display();
+                }
+            }, 100);
+        }
+
+        function stopInterval() {
+            clearInterval(intervalId);
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let s1 = {
+            sname: "Bhanu",
+            birthYear: 2000,
+            calAge: function () {
+                console.log(this);
+                let currentYear = new Date().getFullYear();
+                let currentAge = currentYear - this.birthYear
+                console.log(currentAge);
+            }
+
+
+        }
+
+        s1.calAge();
+    </script>
+</body>
+
+</html>

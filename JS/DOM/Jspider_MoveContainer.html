@@ -11,6 +11,10 @@
             background-color: black !important;
             color: white !important;
         }
+
+        .hidden{
+            display: none;
+        }
     </style>
 </head>
 
@@ -19,23 +23,27 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">🧾 Jspider</a>
+            <button class="btn btn-outline-warning" onclick="showModel()">show Model</button>
         </div>
     </nav>
 
     <section class="container-fluid mt-5 ">
         <div class="row">
-            <div class="col-4 m-auto">
-                <div class="card border-dark ">
+            <div class="col-6 m-auto">
+                <div class="card border-dark  hidden " id="hiddenLayout">
                     <div class="card-header border-dark">
                         <div class="row  text-center">
-                            <div class="col-4">
+                            <div class="col-3">
                                 <div class="m-auto w-25" id="one"> 1</div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <div class="m-auto w-25" id="two"> 2</div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <div class="m-auto w-25" id="three"> 3 </div>
+                            </div>
+                            <div class="col-3">
+                                <button class=" btn m-auto btn-warning" id="cross"  onclick="closeModel()"> ❌ </button>
                             </div>
                         </div>
                     </div>
@@ -71,7 +79,7 @@
         msgEle.textContent = msgArr[step - 1];
         updateMsg();
         function updateMsg() {
-            msgEle.textContent = msgArr[step - 1];
+            msgEle.textContent = `Step ${step}: ${msgArr[step-1]}`;
             oneEle.classList.remove('bg-dark');
             twoEle.classList.remove('bg-dark');
             threeEle.classList.remove('bg-dark');
@@ -96,6 +104,27 @@
                 updateMsg();
             }
         }
+
+
+        let hiddenEle=document.getElementById('hiddenLayout');
+
+        function showModel(){
+            hiddenEle.classList.remove('hidden');
+        }
+
+
+        function closeModel(){
+            hiddenEle.classList.add('hidden');
+
+        }
+
+        document.addEventListener('keyup',function(event){
+            if(event.key=="Escape" &&  !hiddenEle.classList.contains('hidden')){
+                closeModel();
+            }
+        })
+
+
     </script>
 
 </body>

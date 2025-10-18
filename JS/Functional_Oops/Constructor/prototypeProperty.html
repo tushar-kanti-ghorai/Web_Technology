@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Student(sid, sname, birthYear) {
+            this.sid = sid;
+            this.sname = sname;
+            this.birthYear = birthYear;
+        }
+
+        Student.prototype.calAge=  function () {
+                console.log(this);
+                let currentYear = new Date().getFullYear();
+                let currentAge = currentYear - this.birthYear
+                console.log(currentAge);
+            }
+
+        let s1 = new Student(101, "kiran", 2000);
+        console.log(Student.prototype);
+        console.log(Student.prototype.city);
+        console.log(Student.prototype.sname);
+        Student.prototype.city = "Bangalore";
+        console.log(Student.prototype.city);
+        console.log(Student.prototype);
+        console.log(s1.city);
+        console.log(s1);
+        s1.calAge();
+
+        let e={
+            id:101,
+        };
+        console.log(s1 instanceof Student);
+        console.log(e instanceof Student);
+
+
+
+    </script>
+
+</body>
+
+</html>

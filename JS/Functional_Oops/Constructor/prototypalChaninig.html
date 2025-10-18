@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student(sid, sname, birthYear) {
+            this.id = sid;
+            this.name = sname;
+            this.age = birthYear;
+        }
+
+        let s1 = new Student(101, "kiran", 2000);
+        console.log(s1);
+
+        Student.prototype.city = "Bangalore";
+
+        console.log(s1.name + " " + s1.city);  
+
+        console.log(s1.hasOwnProperty("name"));  // true
+        console.log(s1.hasOwnProperty("city"));  // false
+        console.log(s1.hasOwnProperty("sname"));   // false
+        console.log(Object.prototype);
+
+        let obj = { name: "Tushar", age: 24 };
+
+console.log(typeof obj.hasOwnProperty);  
+// "function" → ✅ it's a method
+
+console.log(obj.hasOwnProperty("name"));  
+// true → because "name" is inside obj
+
+console.log(obj.hasOwnProperty("toString"));  
+// false → "toString" comes from prototype, not from obj
+
+    </script>
+</body>
+</html>
